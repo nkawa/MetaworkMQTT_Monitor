@@ -63,7 +63,8 @@ const Page = () => {
                 <Row> <Col> Metawork Clients </Col></Row>
                 <Row><Col>
                   <Table border={2} data-bs-theme="dark" striped size="lg">
-                  <thead><tr><td></td><td>Type</td><td>ver</td><td>devType</td><td>devId</td><td>date</td></tr>
+                  <thead><tr><td></td><td>Type</td><td>ver</td><td>devType</td><td>devId</td>
+                  <td>opt</td><td>date</td></tr>
                   </thead>
                   <tbody>
                     { clients.map((client, index) => 
@@ -73,6 +74,7 @@ const Page = () => {
                       <td> {client.version}</td>
                       <td> {client.devType}</td>
                       <td> {client.devId}</td>
+                      <td> {client.optStr}</td>
                       <td> {client.date}</td>
                       </tr>)
                     }

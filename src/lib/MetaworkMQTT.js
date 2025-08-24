@@ -2,7 +2,7 @@
 import mqtt from 'mqtt'
 import packageInfo from '../../package.json';
 
-const MQTT_BROKER_URL = "wss://sora2.uclab.jp/mqws"; // For Nagoya-U UCLab Development
+const MQTT_BROKER_URL = process.env.NEXT_PUBLIC_MQTT_BROKER_URL; // For Nagoya-U UCLab Development
 
 import {userUUID} from './cookie_id';
 
