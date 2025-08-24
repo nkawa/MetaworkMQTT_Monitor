@@ -6,6 +6,7 @@ import TopNavi from "../components/TopNavi";
 import "./page.css";
 
 import { connectMQTT, mqttclient,idtopic,subscribeMQTT, publishMQTT } from '../lib/MetaworkMQTT'
+import next from "next";
 
 
 var hasRun = false;
@@ -43,7 +44,8 @@ const Page = () => {
         if (topic==="mgr/event"){
           let data = JSON.parse(message.toString())   
           console.log("event", data);
-          setEvents((cur)=> {cur.unshift(data); return cur});
+          setEvents((cur)=> {const nev = [...cur]; nev.unshift(data); return nev});
+          // 強制的にredraw すべき
         }
       })
     }
@@ -91,6 +93,7 @@ const Page = () => {
                     <td>{ev.from.type}</td>
                     <td>{ev.from.devId}</td>
                     <td>{ev.to.devId}</td>
+                    <td>{ev.date}</td>
                     </tr>
                   )} 
                    </tbody>
